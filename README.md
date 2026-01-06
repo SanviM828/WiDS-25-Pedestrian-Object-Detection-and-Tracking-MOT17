@@ -4,9 +4,6 @@ Midterm project for Unsupervised Anomaly Detection using YOLOv5 on the MOT17 dat
 # Pedestrian Detection and Tracking for Anomaly Analysis
 **Midterm Progress Submission**
 
-**Author:** Sanvi Majare  
-**Department:** Electrical Engineering (2nd Year)
-
 ---
 
 ## Project Overview
