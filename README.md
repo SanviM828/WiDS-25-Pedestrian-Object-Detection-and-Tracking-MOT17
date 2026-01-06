@@ -5,7 +5,6 @@ Midterm project for Unsupervised Anomaly Detection using YOLOv5 on the MOT17 dat
 **Midterm Progress Submission**
 
 **Author:** Sanvi Majare  
-**Roll No:** 24B1215  
 **Department:** Electrical Engineering (2nd Year)
 
 ---
