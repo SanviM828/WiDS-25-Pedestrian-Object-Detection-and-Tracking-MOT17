@@ -1,4 +1,4 @@
-# Pedestrian Detection and Tracking (MOT17)
+# Pedestrian Object Detection and Tracking (MOT17)
 **Endterm Progress Submission: End-to-End Pipeline using YOLOv5 and BoT-SORT**
 
 ---
