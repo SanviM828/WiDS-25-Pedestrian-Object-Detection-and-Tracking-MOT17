@@ -1,10 +1,10 @@
-# Pedestrian Detection and Tracking for Analysis (MOT17)
+# Pedestrian Detection and Tracking (MOT17)
 **Endterm Progress Submission: End-to-End Pipeline using YOLOv5 and BoT-SORT**
 
 ---
 
 ## Project Overview
-This repository contains the complete codebase and documentation for the "Unsupervised Anomaly Detection" project. The primary objective is to define "normal" crowd behavior by accurately detecting and tracking pedestrians in the **MOT17** benchmark dataset.
+This repository contains a complete pipeline for **Multi-Object Tracking (MOT)** in crowded environments. The project focuses on accurately detecting pedestrians and maintaining their identities across video frames using the **MOT17** benchmark dataset.
 
 The project is divided into two phases:
 1.  **Phase I (Detection):** Training a custom YOLOv5 model to localize pedestrians in crowded frames.
