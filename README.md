@@ -41,3 +41,8 @@ We integrated the custom `YOLOv5m-Frozen` weights with the **BoT-SORT** tracking
 * **Detection:** PyTorch (YOLOv5)
 * **Tracking:** Ultralytics (BoT-SORT / DeepSORT)
 * **Dataset:** MOT17 (Multiple Object Tracking Benchmark)
+
+## Notebook Guide
+This repository includes two versions of the project code for reference:
+* **`wids_pdtaa_detection.ipynb`**: Contains the code for **Phase I only**. Use this if you want to replicate the object detection training and validation steps in isolation.
+* **`wids_pdtaa_tracking.ipynb`**: Contains the complete, unified pipeline for **Phase I (Detection) and Phase II (Tracking)**. This is the final version of the project that generates the object tracking video output.
