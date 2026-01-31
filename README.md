@@ -1,36 +1,43 @@
-# WiDS-25-Pedestrian-Anomaly-Detection-MOT17
-Midterm project for Unsupervised Anomaly Detection using YOLOv5 on the MOT17 dataset.
-
-# Pedestrian Detection and Tracking for Anomaly Analysis
-**Midterm Progress Submission**
+# Pedestrian Detection and Tracking for Anomaly Analysis (MOT17)
+**Endterm Progress Submission: End-to-End Pipeline using YOLOv5 and BoT-SORT**
 
 ---
 
 ## Project Overview
-This repository contains the code and documentation for the midterm phase of the "Unsupervised Anomaly Detection" project. The objective is to detect and track pedestrians in crowded environments to identify abnormal behaviors (e.g., sudden running, dispersal).
+This repository contains the complete codebase and documentation for the "Unsupervised Anomaly Detection" project. The primary objective is to define "normal" crowd behavior by accurately detecting and tracking pedestrians in the **MOT17** benchmark dataset.
+
+The project is divided into two phases:
+1.  **Phase I (Detection):** Training a custom YOLOv5 model to localize pedestrians in crowded frames.
+2.  **Phase II (Tracking):** Implementing a Multi-Object Tracking (MOT) pipeline using **BoT-SORT** to maintain identity persistence across frames.
 
 ## Repository Contents
-* **`Pedestrian_Detection_YOLOv5.ipynb`**: The complete training pipeline executed on Google Colab. It includes:
-    * Data downloading (MOT17 Dataset).
-    * Preprocessing (Converting annotations to YOLO format).
-    * Training scripts for YOLOv5s, YOLOv5m, and Frozen-YOLOv5m.
-* **`Midterm_Report_Sanvi_Majare.pdf`**: The formal report detailing theoretical background, methodology, and comparative analysis.
+* **`MOT17_Detection_and_Tracking.ipynb`**: The complete, unified pipeline executed on Google Colab. It includes:
+    * **Data Pipeline:** Downloading and converting MOT17 annotations to YOLO format.
+    * **Training:** Scripts for training YOLOv5 variants with Transfer Learning.
+    * **Tracking:** A custom inference engine integrating the custom trained model with the BoT-SORT tracker.
+* **`Midterm_Report.pdf`**: The formal report detailing theoretical background, methodology, and comparative analysis.
+* **`Tracking_Output_Demo.avi`**: A sample video demonstrating the final tracking output.
 
-## Key Results (Midterm)
-We successfully trained a custom object detector on the MOT17 benchmark dataset.
+## Key Results
+
+### Phase I: Object Detection
+We successfully trained a custom object detector on the MOT17 benchmark dataset. Comparative analysis identified **Transfer Learning** as the optimal strategy.
 
 | Model Variant | mAP@0.5 | Observation |
 | :--- | :--- | :--- |
-| **YOLOv5s** | 0.725 | Fast but lower accuracy on small objects. |
-| **YOLOv5m** | 0.760 | Improved accuracy. |
-| **YOLOv5m-Frozen** | **0.773** | **Best Performance.** Achieved via transfer learning by freezing the backbone layers. |
+| **YOLOv5s** | 0.725 | Fast but lower accuracy on small/distant objects. |
+| **YOLOv5m** | 0.760 | Improved accuracy due to deeper architecture. |
+| **YOLOv5m-Frozen** | **0.773** | **Best Performance.** Achieved by freezing the COCO-pretrained backbone to prevent catastrophic forgetting. |
+
+### Phase II: Multi-Object Tracking (MOT)
+We integrated the custom `YOLOv5m-Frozen` weights with the **BoT-SORT** tracking algorithm.
+
+* **Challenge:** Initial deployments revealed sensitivity to environmental noise (e.g., classifying furniture as objects) due to the underlying COCO pre-training.
+* **Solution:** Implemented a **Post-Processing Class Filter** (`classes=[0]`) within the inference loop.
+* **Outcome:** Successfully eliminated false positives, achieving robust pedestrian tracking with consistent ID assignment even during occlusions.
 
 ## Tech Stack
 * **Platform:** Google Colab (Tesla T4 GPU)
-* **Framework:** PyTorch (YOLOv5)
+* **Detection:** PyTorch (YOLOv5)
+* **Tracking:** Ultralytics (BoT-SORT / DeepSORT)
 * **Dataset:** MOT17 (Multiple Object Tracking Benchmark)
-
-## Next Steps (Post-Midterm)
-* Integration with **DeepSORT** for ID tracking.
-* Implementation of velocity vector analysis.
-* Development of the anomaly rule engine.
