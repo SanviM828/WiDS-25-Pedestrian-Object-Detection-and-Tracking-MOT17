@@ -11,13 +11,14 @@ The project is divided into two phases:
 2.  **Phase II (Tracking):** Implementing a Multi-Object Tracking (MOT) pipeline using **BoT-SORT** to maintain identity persistence across frames.
 
 ## Repository Contents
-* **`MOT17_Detection_and_Tracking.ipynb`**: The complete, unified pipeline executed on Google Colab. It includes:
-    * **Data Pipeline:** Downloading and converting MOT17 annotations to YOLO format.
-    * **Training:** Scripts for training YOLOv5 variants with Transfer Learning.
-    * **Tracking:** A custom inference engine integrating the custom trained model with the BoT-SORT tracker.
+This repository includes two versions of the project code for reference:
+* **`wids_pdtaa_detection.ipynb`**: Contains the code for **Phase I only**. Use this if you want to replicate the object detection training and validation steps in isolation.
+* **`wids_pdtaa_tracking.ipynb`**: Contains the complete, unified pipeline for **Phase I (Detection) and Phase II (Tracking)**. This is the final version of the project that generates the object tracking video output.
 * **`Midterm_Report.pdf`**: The formal report detailing theoretical background, methodology, and comparative analysis.
-* **`Tracking_Output_Demo.avi`**: A sample video demonstrating the final tracking output.
+* **`mot_op_clean.avi`**: **(Final Output)** The optimized tracking video with class-filtering applied (pedestrians only).
+* **`mot_op.avi`**: The initial raw tracking video showing the environmental noise challenges (e.g., furniture detection).
 
+  
 ## Key Results
 
 ### Phase I: Object Detection
@@ -41,14 +42,3 @@ We integrated the custom `YOLOv5m-Frozen` weights with the **BoT-SORT** tracking
 * **Detection:** PyTorch (YOLOv5)
 * **Tracking:** Ultralytics (BoT-SORT / DeepSORT)
 * **Dataset:** MOT17 (Multiple Object Tracking Benchmark)
-
-## Repository Contents
-
-# Notebook Guide
-This repository includes two versions of the project code for reference:
-* **`wids_pdtaa_detection.ipynb`**: Contains the code for **Phase I only**. Use this if you want to replicate the object detection training and validation steps in isolation.
-* **`wids_pdtaa_tracking.ipynb`**: Contains the complete, unified pipeline for **Phase I (Detection) and Phase II (Tracking)**. This is the final version of the project that generates the object tracking video output.
-
-* **`Midterm_Report.pdf`**: The formal report detailing theoretical background, methodology, and comparative analysis.
-* **`mot_op_clean.avi`**: **(Final Output)** The optimized tracking video with class-filtering applied (pedestrians only).
-* **`mot_op.avi`**: The initial raw tracking video showing the environmental noise challenges (e.g., furniture detection).
